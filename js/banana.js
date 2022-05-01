@@ -563,7 +563,7 @@ $(function() {
         $('input#refreshing').change(function() {
             if(this.checked) {
                 if(Number($('input#intervalInput').val()) * 1000 < 500) {
-                    alertBalloon('[알림]', 'DoS 공격은 하지 맙시다 ^^;');
+                    alertBalloon('[알림]', ' 공격은 하지 맙시다 ^^;');
                     this.checked = false;
                     return;
                 }
@@ -727,7 +727,7 @@ $(function() {
 
             $('table#perm-list tbody tr#perm-' + val).remove();
             tarea.val(tarea.val().replace(val + ',', ''));
-            alertBalloon('[성공]', '권한을 회수했습니다. 저장하려면 하단의 적용 단추를 누르십시오.', 2000, 1, 'blue');
+            alertBalloon('[성공]', '권한을 회수했습니다. 저장하려면 하단의 적용 단추를 누르세요.', 2000, 1, 'blue');
         });
     }
 
@@ -738,11 +738,11 @@ $(function() {
         var tarea = $('form#grant-form').find('textarea#perm-tlist');
 
         if(tarea.val().includes(val + ',')) {
-            alertBalloon('[오류]', '권한이 이미 있습니다.');
+            alertBalloon('[오류]', '권한이 이미 있어용.');
         } else {
             $('table#perm-list tbody').append('<tr id="perm-' + val + '"><td>' + alias + '</td><td>' + val + '</td><td><input type="hidden" id="permissionInput" value="' + val + '" /><button type="button" class="btn btn-danger btn-sm delete-permission-btn">회수</button></td></tr>');
             tarea.val(tarea.val() + val + ',');
-            alertBalloon('[성공]', '권한을 추가했습니다. 저장하려면 하단의 적용 단추를 누르십시오.', 2000, 1, 'blue');
+            alertBalloon('[성공]', '권한을 추가했습니당. 저장하려면 하단의 적용 단추를 누르십시오.', 2000, 1, 'blue');
         }
 
         bdb();
@@ -874,12 +874,12 @@ $(function() {
 
         if(window.submitConfirmed) return true;
 
-        confirmBalloon('[탈퇴]', '시간여행기는 없습니다. 탈퇴하면 더 이상 로그인할 수 없으며, 사용자 문서를 지우지 않도록 설정한 경우 영구적으로 현재 사용중인 ID로 가입이 불가능합니다. 탈퇴하시겠습니까?', function() {
+        confirmBalloon('[탈퇴]', '시간여행기는 없습니당. 탈퇴하면 더 이상 로그인할 수 없으며, 사용자 문서를 지우지 않도록 설정한 경우 영구적으로 현재 사용중인 ID로 가입이 불가능합니다. 탈퇴하시겠습니까?', function() {
             if(confirm('마지막 경고입니다. 계속하려면 [확인]을 누르십시오.')) {
                 window.submitConfirmed = true;
                 frm.submit();
             }
-        }, _, '예!', '잠시만요');
+        }, _, '네......', '잠시만요.... 탈퇴 완료 돼었습니다. 님이 탈퇴해서 운영자는 괴롭습니다.......');
 
         return false;
     });
